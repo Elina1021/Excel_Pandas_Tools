@@ -1,14 +1,14 @@
-#!/usr/bin/env python
+
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import pandas as pd
 import os
 
 
-# In[3]:
+# In[2]:
 
 
 def read_excel(filename, sheet_name: str = 'data'):
@@ -18,7 +18,7 @@ def read_excel(filename, sheet_name: str = 'data'):
     return df
 
 
-# In[4]:
+# In[3]:
 
 
 def get_drop_cols(months):
@@ -34,11 +34,12 @@ def get_drop_cols(months):
     return drop_cols
 
 
-# In[5]:
+# In[4]:
 
 
-def main():
-    filename = 'data.xlsx'
+def main(filename):
+    if not filename:
+        raise AssertionError('filename must be input!')
     output_filename = 'currentdata.txt'
     
     months = [4]
@@ -83,27 +84,10 @@ def main():
     print(f'please find the datafile {output_filename},thanks')
 
 
-# In[6]:
+# In[5]:
 
 
 if __name__ == '__main__':
-    main()
-
-
-# In[6]:
-
-
-
-
-
-# In[17]:
-
-
-
-
-
-# In[ ]:
-
-
-
+    filename = 'data.xlsx'
+    main(filename)
 
